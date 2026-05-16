@@ -23,8 +23,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: cr.bunnycdn.com
-          username: ${{ secrets.BUNNY_STORAGE_ZONE }}
-          password: ${{ secrets.BUNNY_API_KEY }}
+          username: ${{ secrets.lukely }}
+          password: ${{ secrets.a06aaf6f-e4fe-44d3-b34f-737929e658923be2d3ae-2fde-42c9-aad1-451784c43544 }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -32,10 +32,10 @@ jobs:
           context: .
           push: true
           tags: |
-            cr.bunnycdn.com/${{ secrets.BUNNY_STORAGE_ZONE }}/my-app:latest
-            cr.bunnycdn.com/${{ secrets.BUNNY_STORAGE_ZONE }}/my-app:${{ github.sha }}
+            cr.bunnycdn.com/${{ secrets.lukely }}/my-app:latest
+            cr.bunnycdn.com/${{ secrets.lukely }}/my-app:${{ github.sha }}
 
       - name: Image pushed successfully
         run: |
           echo "✅ Docker image pushed to Bunny.net Container Registry"
-          echo "Image: cr.bunnycdn.com/${{ secrets.BUNNY_STORAGE_ZONE }}/my-app:latest"
+          echo "Image: cr.bunnycdn.com/${{ secrets.lukely }}/my-app:latest"
